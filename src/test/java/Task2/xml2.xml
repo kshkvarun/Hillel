@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+    <DateTime>2019-04-18T12:10:27+1000</DateTime>
+    <CustomerId>YISEBC</CustomerId>
+    <CompanyName>Hillel Capital</CompanyName>
+    <CustomerNumber>32423</CustomerNumber>
+    <MessageDetails>
+        <MessageId>677</MessageId>
+        <Datatype>DTTR</Datatype>
+        <Type>DTTR</Type>
+        <DatatypeDescription>IFTI from ITF</DatatypeDescription>
+        <OriginalFilename>neq_mt33_6235935321.txt.ENC</OriginalFilename>
+    </MessageDetails>
+    <Issues>
+        <Issue type="1">THE BELOW INTERNATIONAL FUNDS TRANSFER HAS BEEN SENT TO SWIFT ADDRESS</Issue>
+        <Issue type="2">YOUR VALUE OF AMOUNT IS INCORRECT</Issue>
+        <Issue type="5">ERROR ON VALIDATION LEVEL</Issue>
+    </Issues>
+</Message>

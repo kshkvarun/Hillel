@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Message>
+    <DateTime>2019-04-18T12:10:27+1000</DateTime>
+    <CustomerId>YISEBC</CustomerId>
+    <CompanyName>Hillel</CompanyName>
+    <CustomerNumber>32423</CustomerNumber>
+    <MessageDetails>
+        <MessageId>677</MessageId>
+        <Datatype>Second level xml changing</Datatype>
+        <Type>DTTR</Type>
+        <DatatypeDescription>IFTI from ITF</DatatypeDescription>
+        <OriginalFilename>neq_mt33_6235935321.txt.ENC</OriginalFilename>
+    </MessageDetails>
+    <Issues>
+        <Issue type="0">New value0</Issue>
+        <Issue type="1">New value1</Issue>
+        <Issue type="2">New value2</Issue>
+    </Issues>
+</Message>

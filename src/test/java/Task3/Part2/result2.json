@@ -1,0 +1,22 @@
+{
+  "menu": {
+    "id": "666",
+    "value": "New File",
+    "popup": {
+      "menuitem": [
+        {
+          "value": "Delete",
+          "onclick": "Something"
+        },
+        {
+          "value": "Open",
+          "onclick": "OpenDoc()"
+        },
+        {
+          "value": "Close",
+          "onclick": "CloseDoc()"
+        }
+      ]
+    }
+  }
+}
