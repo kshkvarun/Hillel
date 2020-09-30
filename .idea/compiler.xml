@@ -8,7 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Task2.3.Maven" />
-        <module name="Hillel" />
+        <module name="HillelNew" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="13" />
