@@ -1,2 +1,4 @@
-package Lesson21;public class GitPractices2 {
+package Lesson21;
+
+public class GitPractices2 {
 }
