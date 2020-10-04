@@ -4,11 +4,14 @@ public class PrintOutProperties {
 
 
     public static void main(String[] args) {
-        //String timeoutValue = PropertyReader.getInstance().getValueFromProperty("defaultTimeout");
-        String baseUrlValue = PropertyReader.getInstance().getValueFromProperty("baseUrl");
 
-        //System.out.println("timeoutValue" + timeoutValue);
-        System.out.println("baseUrlValue" + baseUrlValue);
+        String baseUrlValue = PropertyReader.getInstance().getValueFromProperty("baseUrl");
+        String fName = PropertyReader.getInstance().getValueFromProperty("firstName");
+        String sName = PropertyReader.getInstance().getValueFromProperty("secondName");
+
+        System.out.println("baseUrlValue: " + baseUrlValue);
+        System.out.println("firstName: " + fName);
+        System.out.println("secondName: " + sName);
     }
 
 }
