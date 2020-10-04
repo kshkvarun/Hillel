@@ -1,5 +1,6 @@
-package Lesson22;
+package Lesson22.Task1.Runners;
 
+import Lesson22.Task1.*;
 import org.junit.experimental.categories.Categories;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

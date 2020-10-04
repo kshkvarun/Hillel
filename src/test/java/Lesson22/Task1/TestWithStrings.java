@@ -1,4 +1,4 @@
-package Lesson22;
+package Lesson22.Task1;
 
 import org.junit.AfterClass;
 import org.junit.Assume;
@@ -10,9 +10,6 @@ import static org.hamcrest.core.CombinableMatcher.either;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.*;
-
-interface stringTest{
-}
 
 public class TestWithStrings {
 

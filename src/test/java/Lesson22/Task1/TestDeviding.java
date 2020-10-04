@@ -1,13 +1,10 @@
-package Lesson22;
+package Lesson22.Task1;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
-
-interface divTest{
-}
 
 
 public class TestDeviding {

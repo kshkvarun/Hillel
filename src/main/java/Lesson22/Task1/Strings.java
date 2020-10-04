@@ -1,4 +1,4 @@
-package Lesson22;
+package Lesson22.Task1;
 
 public class Strings {
 

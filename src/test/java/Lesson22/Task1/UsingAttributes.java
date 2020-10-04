@@ -1,4 +1,4 @@
-package Lesson22;
+package Lesson22.Task1;
 
 import org.junit.After;
 import org.junit.Before;
