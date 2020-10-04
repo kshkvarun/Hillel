@@ -1,15 +1,21 @@
 package Lesson22;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
+interface divTest{
+}
+
+
 public class TestDeviding {
     MathOperations mathOperations = new MathOperations();
     MathOperations mathOperations1 = new MathOperations();
+    MathOperations mathOperations2 = null;
 
-
+    @Category(divTest.class)
     @Test
     public void divEquals() {
         assertEquals(mathOperations.dividing(6.4 , 2.0), 3.2, 0.0);
@@ -40,12 +46,12 @@ public class TestDeviding {
 
     @Test
     public void divThat() {
-        assertThat(mathOperations.dividing(6,3), is(2.0));
+        assertThat(mathOperations.dividing(6,3), is(2));
     }
 
     @Test
     public void divNull() {
-        assertNull(mathOperations);
+        assertNull(mathOperations2);
     }
 
 }

@@ -17,12 +17,12 @@ public class TestMultiplying {
 
     @Test
     public void mulTrue() {
-        assertTrue(mathOperations.multiplying(2,3)<0);
+        assertTrue(mathOperations.multiplying(2,3)>0);
     }
 
     @Test
     public void mulFalse() {
-        assertFalse(mathOperations.multiplying(2,3)>0);
+        assertFalse(mathOperations.multiplying(2,3)<0);
     }
 
     @Test
