@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lesson 23</title>
+	</head>
+	<style>
+				.border-bottom {   
+							border-bottom: 3px solid gray; 
+				}
+				
+				.border-right{   
+							border-right: 3px solid gray; 
+				}
+				
+				.border-left{   
+							border-left: 3px solid gray; 
+				}
+				
+				.border-no-left {   
+							 border-left: solid #808080;
+				}
+				
+				.border-no-right{   
+							 border-right: solid #808080;
+				}
+				
+				.mid-cell{   
+							 background-color: #808080;
+				}
+				
+				.mid-table{   
+							 background-color: #c0c0c0;
+				}
+				
+				
+	</style>
+	<body>
+		<table class = "border-bottom"  width="100%" cellspacing="0" cellpadding="0" frame="below">
+			<tr> 
+				<td class="rightcol" align = "right"><img src="folder.jpg"></td>
+				<td valign="center" align = "center" width = "500">Файловое хранилище v 0.01 (потеряй свои файлы красиво! :))</td>
+				<td class="leftcol" align = "left"><img src="folder.jpg"></td>
+			</tr>
+		</table>
+		<table class= "border-bottom" width="100%" cellpadding="5" frame="below">
+			<tr> 
+				<td align = "right" width = "500">Необходимо выполнить вход в ссистему:</td>
+			</tr>
+		</table>
+		<table class = "border-bottom" width = "100%" height="700" frame = "below" cellspacing="0" cellpadding="20" >
+			<tr>
+				<td class = "border-right" width = "20%"  background = "1.jpg" >
+				</td>
+				<td class="mid-table" width = "60%" height = "800" valign = "top">
+					<table class = "mid-cell"  border = "2" height = "150" width = "99%" cellspacing="0" cellpadding="10">
+						<tr>
+							<td class = "border-no-right" align="right" valign="top">							
+								Логин:
+								<br>
+								Пароль:
+								<br>
+								Запомнить:
+							</td>
+							<td class = "border-no-left" align="left" valign="top">
+							<form>
+								<input type = "text" name = "login" />
+								<br>
+								<input type = "password" name = "password" />
+								<br>		
+							</form>
+							<form>	
+								<input type = "checkbox" name = "checkbox" checked />
+							</form>	
+							<form>
+								<input type="button" name = "Войти" value = "Войти" onclick = 'location.href="Lesson23-1.html"' />
+							</form>							
+							</td>
+						</tr>
+						
+					</table>
+				</td>
+				<td class = "border-left" width = "20%" background = "1.jpg" valign="top">
+				<b>Статистика:</b>
+				<br>
+				Пользователей: 123
+				<br>	
+				Файлов: 1234
+				<br>
+				Объём: 2345 Mb
+				<br>
+				Объём/польз. : 45 Mb
+				</td>			
+			</tr>
+			<table class= "border-bottom" width="100%" cellpadding="5" frame="below" align="center">
+			<tr> 
+				<td align = "center" width = "500">
+				&#127279, HILLEL Training
+				</td>
+			</tr>
+			</table>
+		</table>	
+	</body>
+</html>
