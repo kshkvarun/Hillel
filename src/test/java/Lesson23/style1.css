@@ -1,4 +1,4 @@
-				.border-bottom {   
+.border-bottom  {   
 							border-bottom: 3px solid gray; 
 				}
 				
@@ -10,7 +10,11 @@
 							border-left: 3px solid gray; 
 				}
 				
-				.border-no-left {   
+				.new-file, .choose-button, .load-button, .input-text {
+							border-top: solid #808080;
+				}
+				
+				.border-no-left, .new-file, .choose-button, .load-button, .input-text {   
 							 border-left: solid #808080;
 				}
 				
@@ -25,3 +29,11 @@
 				.mid-table{   
 							 background-color: #c0c0c0;
 				}
+				
+				#input-text, #input-text1 {
+							 width: 100%;	
+				}
+				
+				#input-text1 {
+							 width: 523%;	
+				}				
