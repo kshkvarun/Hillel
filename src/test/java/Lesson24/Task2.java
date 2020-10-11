@@ -34,15 +34,20 @@ public class Task2 {
             if (b == 0) {
                 List<WebElement> elements = driver.findElements(By.cssSelector("div.g"));
                 for (WebElement element : elements) {
-                    if (element.getText().contains("didi.ua")) {
+                    if (element.getText().contains("stylus.ua")) {
                         System.out.println("STYLUS.UA has been found on page " + i);
                         b++;
                     }
                 }
-                driver.findElement(By.id("pnnext")).click();
             } else {
                 break;
             }
+            if (b == 0) {
+                driver.findElement(By.id("pnnext")).click();
+            }
+        }
+        if (b == 0) {
+            System.out.println("STYLUS.UA not found on first 5 pages");
         }
     }
 }
