@@ -29,17 +29,24 @@ public class Task2 {
         driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
 
 
+        int b = 0;
         for (int i = 1; i < 5; i++) {
-            List<WebElement> elements = driver.findElements(By.cssSelector("div.g"));
-            for (WebElement element : elements) {
-                if (element.getText().contains("stylus.ua")) {
-                    System.out.println("STYLUS.UA has been found on page " + i);
+            if (b == 0) {
+                List<WebElement> elements = driver.findElements(By.cssSelector("div.g"));
+                for (WebElement element : elements) {
+                    if (element.getText().contains("didi.ua")) {
+                        System.out.println("STYLUS.UA has been found on page " + i);
+                        b++;
+                    }
                 }
+                driver.findElement(By.id("pnnext")).click();
+            } else {
+                break;
             }
-            driver.findElement(By.id("pnnext")).click();
         }
     }
 }
+
 
 
 
