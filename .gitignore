@@ -4,6 +4,8 @@
 #CLass
 *.class
 
+.gradle
+
 **/target/
 /target/
 */target/*
