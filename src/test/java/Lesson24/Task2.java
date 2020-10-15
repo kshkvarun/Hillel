@@ -34,6 +34,7 @@ public class Task2 {
             if (b == 0) {
                 List<WebElement> elements = driver.findElements(By.cssSelector("div.g"));
                 for (WebElement element : elements) {
+                    System.out.println(element.getText());
                     if (element.getText().contains("stylus.ua")) {
                         System.out.println("STYLUS.UA has been found on page " + i);
                         b++;
