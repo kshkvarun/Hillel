@@ -73,7 +73,7 @@ public class Task1 extends BaseClass {
         wait.until(visibilityOfElementLocated(By.cssSelector(goodPicture)));
 
 
-        int secondPrice;
+        int secondPrice = 0;
         int secondPriceIndex = 0;
         String secondPriceWithoutSpaces;
         int counter1 = 0;
@@ -98,15 +98,14 @@ public class Task1 extends BaseClass {
 
         driver.findElement(By.xpath("//span[@class='goods-tile__title'] [contains(text(), '" + secondProductName + "')]")).click();
         wait.until(visibilityOfElementLocated(By.cssSelector("button.compare-button"))).click();
-        wait.until(visibilityOfElementLocated(By.xpath("//span[@class='header-actions__button-counter']")));
-//      wait.until(visibilityOfElementLocated(By.xpath("//span[@class='header-actions__button-counter']")));
-        sleep(5000);
+        wait.until(textToBe(By.xpath("//span[@class='header-actions__button-counter']"), "2"));
+
         Assert.assertTrue(driver.findElement(By.xpath("//span[@class='header-actions__button-counter']")).getText().contains("2"));
 
         driver.findElement(By.cssSelector("button.header-actions__button")).click();
         driver.findElement(By.cssSelector("a.comparison-modal__link")).click();
         wait.until(visibilityOfElementLocated(By.cssSelector("h1.comparison__heading")));
-        sleep(5000);
+//        sleep(5000);
 
 
         List<WebElement> compareList = driver.findElements(By.cssSelector("li.products-grid__cell"));
@@ -116,11 +115,14 @@ public class Task1 extends BaseClass {
         assertThat(checkList.get(0).findElement(By.cssSelector("a.product__heading")).getText(), equalTo(firstProductName));
         assertThat(checkList.get(1).findElement(By.cssSelector("a.product__heading")).getText(), equalTo(secondProductName));
 
-        String comparePrice = checkList.get(0).findElement(By.cssSelector("a.product__heading")).getText();
+        String firstPriceInCompare = checkList.get(0).findElement(By.cssSelector("div.product__price.product__price--red")).getText().replaceAll("\\s+", "").substring(5, 9);
+        int intFirstPriceInCompare = Integer.parseInt(firstPriceInCompare);
+        String secondPriceInCompare = checkList.get(1).findElement(By.cssSelector("div.product__price.product__price--red")).getText().replaceAll("\\s+", "").substring(5, 9);
+        int intSecondPriceInCompare = Integer.parseInt(secondPriceInCompare);
 
 
-//        System.out.println(driver.findElement(By.xpath("//rz-products-section/ul/li[1]/rz-compare-tile/div/div[2]/div[2]/div[1]/div")).getText());
-//        System.out.println(driver.findElement(By.xpath("//rz-products-section/ul/li/rz-compare-tile/div/div/div/div/div[contains(., '999')]")).getText());
+        assertThat(intFirstPriceInCompare, equalTo(firstPrice));
+        assertThat(intSecondPriceInCompare, equalTo(secondPrice));
 
 
     }
