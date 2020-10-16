@@ -109,17 +109,18 @@ public class Task1 extends BaseClass {
         sleep(5000);
 
 
-
         List<WebElement> compareList = driver.findElements(By.cssSelector("li.products-grid__cell"));
         assertThat(2, equalTo(compareList.size()));
 
-        Assert.assertEquals(driver.findElement(By.linkText(firstProductName)).getText(), firstProductName);
-        Assert.assertEquals(driver.findElement(By.linkText(secondProductName)).getText(), secondProductName);
+        List<WebElement> checkList = driver.findElements(By.cssSelector("div.product"));
+        assertThat(checkList.get(0).findElement(By.cssSelector("a.product__heading")).getText(), equalTo(firstProductName));
+        assertThat(checkList.get(1).findElement(By.cssSelector("a.product__heading")).getText(), equalTo(secondProductName));
 
-        System.out.println(driver.findElement(By.xpath("//rz-products-section/ul/li[1]/rz-compare-tile/div/div[2]/div[2]/div[1]/div")).getText());
-        System.out.println(driver.findElement(By.xpath("//rz-products-section/ul/li/rz-compare-tile/div/div/div/div/div[contains(., '999')]")).getText());
+        String comparePrice = checkList.get(0).findElement(By.cssSelector("a.product__heading")).getText();
 
 
+//        System.out.println(driver.findElement(By.xpath("//rz-products-section/ul/li[1]/rz-compare-tile/div/div[2]/div[2]/div[1]/div")).getText());
+//        System.out.println(driver.findElement(By.xpath("//rz-products-section/ul/li/rz-compare-tile/div/div/div/div/div[contains(., '999')]")).getText());
 
 
     }
