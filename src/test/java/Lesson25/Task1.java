@@ -27,11 +27,6 @@ public  String goodPicture = "a.goods-tile__picture";
     public String productTitleInCompare = "a.product__heading";
     public String compareProductsButton = "button.header-actions__button";
     public String compareLink = "a.comparison-modal__link";
-
-
-
-
-
 //  String menuCatalog = "//a[contains(text(), 'Ноутбуки и компьютеры')]";
 
     @BeforeMethod
