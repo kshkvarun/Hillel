@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-import static java.lang.Thread.sleep;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
@@ -36,7 +35,7 @@ public  String goodPicture = "a.goods-tile__picture";
     @Test
     public void comparison() throws InterruptedException {
         wait.until(presenceOfElementLocated(By.xpath(itemComputersAndLaptops)));
-        action.moveToElement(driver.findElement(By.xpath(itemComputersAndLaptops))).build().perform();
+        action.moveToElement(driver.findElement(By.linkText("Ноутбуки и компьютеры"))).build().perform();
         wait.until(visibilityOfElementLocated(By.xpath(itemMonitors)));
         driver.findElement(By.xpath(itemMonitors)).click();
         wait.until(visibilityOfElementLocated(By.cssSelector(goodPicture)));

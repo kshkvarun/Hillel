@@ -92,7 +92,6 @@ public class Task2 extends BaseClass {
 
         wait.until(presenceOfElementLocated(By.xpath(itemComputersAndLaptops)));
         driver.findElement(By.name(mainSearch)).sendKeys("Samsung", Keys.ENTER);
-        wait.until(visibilityOfElementLocated(By.xpath(mobilePhoneCategory)));
         wait.until(visibilityOfElementLocated(By.xpath(mobilePhoneCategory))).click();
         wait.until(visibilityOfElementLocated(By.cssSelector(sideSearch)));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//span[@class='sidebar-block__toggle-title'] [contains(text(), 'Серия')]")));
