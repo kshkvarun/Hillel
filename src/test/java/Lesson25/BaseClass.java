@@ -15,6 +15,8 @@ public class BaseClass {
 
     public String rozetkaUrl = "https://rozetka.com.ua/";
     public String itemComputersAndLaptops = "//sidebar-fat-menu//a[contains(text(), 'Ноутбуки и компьютеры')]";
+    public  String prices = "span.goods-tile__price-value";
+
 
 
     WebDriverWait wait;

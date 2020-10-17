@@ -20,7 +20,6 @@ public class Task1 extends BaseClass {
 //    String itemMonitors = "//a[contains(text(),'Мониторы')]";
 //    String itemMonitors1 = "//fat-menu//a[[text()=' Мониторы ']";
 public  String goodPicture = "a.goods-tile__picture";
-    public  String prices = "span.goods-tile__price-value";
     public String products = "span.goods-tile__title";
     public String addToCompare = "button.compare-button";
     public String productCompareCounter = "//span[@class='header-actions__button-counter']";
@@ -107,7 +106,6 @@ public  String goodPicture = "a.goods-tile__picture";
         driver.findElement(By.cssSelector(compareProductsButton)).click();
         driver.findElement(By.cssSelector(compareLink)).click();
         wait.until(visibilityOfElementLocated(By.cssSelector("h1.comparison__heading")));
-//        sleep(5000);
 
 
         List<WebElement> compareList = driver.findElements(By.cssSelector("li.products-grid__cell"));
@@ -121,7 +119,6 @@ public  String goodPicture = "a.goods-tile__picture";
         int intFirstPriceInCompare = Integer.parseInt(firstPriceInCompare);
         String secondPriceInCompare = checkList.get(1).findElement(By.cssSelector("div.product__price.product__price--red")).getText().replaceAll("\\s+", "").substring(5, 9);
         int intSecondPriceInCompare = Integer.parseInt(secondPriceInCompare);
-
 
         assertThat(intFirstPriceInCompare, equalTo(firstPrice));
         assertThat(intSecondPriceInCompare, equalTo(secondPrice));
