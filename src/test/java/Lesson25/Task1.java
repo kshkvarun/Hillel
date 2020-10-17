@@ -41,6 +41,8 @@ public  String goodPicture = "a.goods-tile__picture";
         driver.findElement(By.xpath(itemMonitors)).click();
         wait.until(visibilityOfElementLocated(By.cssSelector(goodPicture)));
 
+
+//        Search for first price less then 3000 and remember price
         int firstPrice = 0;
         int firstPriceIndex = 0;
         String firstPriceWithoutSpaces;
@@ -58,28 +60,30 @@ public  String goodPicture = "a.goods-tile__picture";
                 break;
             }
         }
-
-
+//        Remember name of product with price less then 3000
         List<WebElement> productList = driver.findElements(By.cssSelector(products));
-        System.out.println(firstPriceIndex);
         String firstProductName = productList.get(firstPriceIndex).getText();
-        System.out.println(firstProductName);
 
+
+//        Add to compare first product
         String productTitle = "//span[@class='goods-tile__title'] [contains(text(), '" + firstProductName + "')]";
         driver.findElement(By.xpath(productTitle)).click();
         wait.until(visibilityOfElementLocated(By.cssSelector(addToCompare))).click();
         wait.until(visibilityOfElementLocated(By.xpath(productCompareCounter)));
         Assert.assertTrue(driver.findElement(By.xpath(productCompareCounter)).getText().contains("1"));
+//        GO back to products overview
         driver.navigate().back();
         wait.until(visibilityOfElementLocated(By.cssSelector(goodPicture)));
 
 
+//        Searching for second product which has price less the first one and remember price of product
         int secondPrice = 0;
         int secondPriceIndex = 0;
         String secondPriceWithoutSpaces;
         int counter1 = 0;
         List<WebElement> secondPriceList = driver.findElements(By.cssSelector(prices));
         for (WebElement secondItemPrice : secondPriceList) {
+
             secondPriceWithoutSpaces = secondItemPrice.getText().replaceAll("\\s+", "");
             secondPrice = Integer.parseInt(secondPriceWithoutSpaces);
 
@@ -92,34 +96,35 @@ public  String goodPicture = "a.goods-tile__picture";
             }
         }
 
+//        Remember name of second product
         List<WebElement> productList2 = driver.findElements(By.cssSelector(products));
-        System.out.println(secondPriceIndex);
         String secondProductName = productList2.get(secondPriceIndex).getText();
-        System.out.println(secondProductName);
 
+//        Add to compare and check if it was added
         driver.findElement(By.xpath("//span[@class='goods-tile__title'] [contains(text(), '" + secondProductName + "')]")).click();
         wait.until(visibilityOfElementLocated(By.cssSelector(addToCompare))).click();
         wait.until(textToBe(By.xpath(productCompareCounter), "2"));
-
         Assert.assertTrue(driver.findElement(By.xpath(productCompareCounter)).getText().contains("2"));
 
+//        Go to compare page
         driver.findElement(By.cssSelector(compareProductsButton)).click();
         driver.findElement(By.cssSelector(compareLink)).click();
         wait.until(visibilityOfElementLocated(By.cssSelector("h1.comparison__heading")));
 
-
+//        Check if compare page has only two products
         List<WebElement> compareList = driver.findElements(By.cssSelector("li.products-grid__cell"));
         assertThat(2, equalTo(compareList.size()));
 
+//        Check name of products
         List<WebElement> checkList = driver.findElements(By.cssSelector("div.product"));
         assertThat(checkList.get(0).findElement(By.cssSelector(productTitleInCompare)).getText(), equalTo(firstProductName));
         assertThat(checkList.get(1).findElement(By.cssSelector(productTitleInCompare)).getText(), equalTo(secondProductName));
 
+//        Check price of products
         String firstPriceInCompare = checkList.get(0).findElement(By.cssSelector("div.product__price.product__price--red")).getText().replaceAll("\\s+", "").substring(5, 9);
         int intFirstPriceInCompare = Integer.parseInt(firstPriceInCompare);
         String secondPriceInCompare = checkList.get(1).findElement(By.cssSelector("div.product__price.product__price--red")).getText().replaceAll("\\s+", "").substring(5, 9);
         int intSecondPriceInCompare = Integer.parseInt(secondPriceInCompare);
-
         assertThat(intFirstPriceInCompare, equalTo(firstPrice));
         assertThat(intSecondPriceInCompare, equalTo(secondPrice));
 
