@@ -15,20 +15,18 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class Task1 extends BaseClass {
 
-    private String rozetkaUrl = "https://rozetka.com.ua/";
-    String itemComputersAndLaptops = "//sidebar-fat-menu//a[contains(text(), 'Ноутбуки и компьютеры')]";
-    String itemMonitors = "//fat-menu/div/ul/li[1]/div/div[2]/div[1]/div[2]/ul[2]/li/ul/li[1]";
+    public  String itemMonitors = "//fat-menu/div/ul/li[1]/div/div[2]/div[1]/div[2]/ul[2]/li/ul/li[1]";
 //    Лично у меня не хотело искать по этим локаторам, у гих они работали, поэтому так коряво сделал
 //    String itemMonitors = "//a[contains(text(),'Мониторы')]";
 //    String itemMonitors1 = "//fat-menu//a[[text()=' Мониторы ']";
-    String goodPicture = "a.goods-tile__picture";
-    String prices = "span.goods-tile__price-value";
-    String products = "span.goods-tile__title";
-    String addToCompare = "button.compare-button";
-    String productCompareCounter = "//span[@class='header-actions__button-counter']";
-    String productTitleInCompare = "a.product__heading";
-    String compareProductsButton = "button.header-actions__button";
-    String compareLink = "a.comparison-modal__link";
+public  String goodPicture = "a.goods-tile__picture";
+    public  String prices = "span.goods-tile__price-value";
+    public String products = "span.goods-tile__title";
+    public String addToCompare = "button.compare-button";
+    public String productCompareCounter = "//span[@class='header-actions__button-counter']";
+    public String productTitleInCompare = "a.product__heading";
+    public String compareProductsButton = "button.header-actions__button";
+    public String compareLink = "a.comparison-modal__link";
 
 
 
