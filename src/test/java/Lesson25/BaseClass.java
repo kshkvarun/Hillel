@@ -9,14 +9,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-import javax.swing.*;
 
-public class BaseClass {
+class BaseClass {
 
     public String rozetkaUrl = "https://rozetka.com.ua/";
     public String itemComputersAndLaptops = "//sidebar-fat-menu//a[contains(text(), 'Ноутбуки и компьютеры')]";
-    public  String prices = "span.goods-tile__price-value";
-
+    public String prices = "span.goods-tile__price-value";
 
 
     WebDriverWait wait;
