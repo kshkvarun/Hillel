@@ -7,36 +7,37 @@ import org.testng.annotations.Test;
 
 import java.util.Set;
 
+import static java.lang.Thread.sleep;
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class Task2 extends BaseClass {
     String url = "http://demo.guru99.com/Agile_Project/Agi_V1/index.php";
-    String login = "1303";
+    String userID = "1303";
     String password = "Guru99";
-    String loginButton = "//input[@name='btnLogin']";
-    String loggedInUser = "http://demo.guru99.com/Agile_Project/Agi_V1/customer/Customerhomepage.php";
+    String logInBtn = "input[name='btnLogin']";
+    String logOutBtn = "a[href='Logout.php']";
+    String userIdField = "input[name='uid']";
+    String userPasswordField = "input[name='password']";
+
 
     @BeforeMethod
-    public void navigateToUrl() {
+    public void getUrl() {
         driver.get(url);
     }
-    @Test
-    public void Task1() {
-        driver.findElement(By.name("uid")).sendKeys(login);
-        driver.findElement(By.name("password")).sendKeys(password);
-        driver.findElement(By.xpath(loginButton)).click();
-        wait.until(presenceOfElementLocated(By.linkText("Log out")));
 
-        Set<Cookie> cookies = driver.manage().getCookies();
+    @Test
+    public void Task2() throws InterruptedException {
+        driver.findElement(By.cssSelector(userIdField)).sendKeys(userID);
+        driver.findElement(By.cssSelector(userPasswordField)).sendKeys(password);
+        driver.findElement(By.cssSelector(logInBtn)).click();
+        wait.until(presenceOfElementLocated(By.linkText("Log out")));
+        cookies = driver.manage().getCookies();
         System.out.println(cookies);
 
         driver.manage().deleteAllCookies();
         driver.navigate().refresh();
-        assertEquals(driver.getCurrentUrl(), loggedInUser);
-
-        //Необходимо теперь сравнить что скссия активна
-
-
+        wait.until(visibilityOfElementLocated(By.cssSelector(logOutBtn)));
     }
 }

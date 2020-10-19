@@ -1,5 +1,6 @@
 package Lesson25;
 
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +9,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+
+import java.util.Set;
 
 
 class BaseClass {
@@ -20,6 +23,7 @@ class BaseClass {
     WebDriverWait wait;
     WebDriver driver;
     Actions action;
+    Set<Cookie> cookies;
 
 
     @BeforeClass

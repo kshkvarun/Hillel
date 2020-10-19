@@ -24,25 +24,21 @@ public class Task4 extends BaseClass {
 
     public void Task1() throws InterruptedException {
 
-        Actions act = new Actions(driver);
 
         WebElement bank  = driver.findElement(By.xpath("//*[@id='credit2']/a"));
-        WebElement debitAccount = driver.findElement(By.xpath("//*[@id='bank']/li"));
-
         WebElement sales = driver.findElement(By.xpath("//*[@id='credit1']/a"));
-        WebElement debitAmount = driver.findElement(By.xpath("//*[@id='amt7']/li"));
-
         WebElement debMoney = driver.findElement(By.xpath("//li[@id='fourth']"));
-        WebElement creditAccount = driver.findElement(By.xpath("//*[@id='loan']/li"));
-
         WebElement credMoney = driver.findElement(By.xpath("//li[@id='fourth']"));
+
+        WebElement debitAccount = driver.findElement(By.xpath("//*[@id='bank']/li"));
+        WebElement debitAmount = driver.findElement(By.xpath("//*[@id='amt7']/li"));
+        WebElement creditAccount = driver.findElement(By.xpath("//*[@id='loan']/li"));
         WebElement creditAmount = driver.findElement(By.xpath("//*[@id='amt8']/li"));
 
-
-        act.dragAndDrop(bank, debitAccount).build().perform();
-        act.dragAndDrop(debMoney, debitAmount).build().perform();
-        act.dragAndDrop(sales, creditAccount).build().perform();
-        act.dragAndDrop(credMoney, creditAmount).build().perform();
+        actions.dragAndDrop(bank, debitAccount).build().perform();
+        actions.dragAndDrop(debMoney, debitAmount).build().perform();
+        actions.dragAndDrop(sales, creditAccount).build().perform();
+        actions.dragAndDrop(credMoney, creditAmount).build().perform();
 
         assertThat(driver.findElement(By.cssSelector("a[class='button button-green']")).getText(), equalTo("Perfect!"));
     }
