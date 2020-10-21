@@ -1,5 +1,7 @@
 package Lesson25;
 
+import Lesson27.RozetkaMainPage;
+import Lesson27.RozetkaResultPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -14,18 +16,22 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class Task1 extends BaseClass {
 
-    public  String itemMonitors = "//fat-menu/div/ul/li[1]/div/div[2]/div[1]/div[2]/ul[2]/li/ul/li[1]";
-//    Лично у меня не хотело искать по этим локаторам, у гих они работали, поэтому так коряво сделал
-//    String itemMonitors = "//a[contains(text(),'Мониторы')]";
-//    String itemMonitors1 = "//fat-menu//a[[text()=' Мониторы ']";
-public  String goodPicture = "a.goods-tile__picture";
-    public String products = "span.goods-tile__title";
+    public String goodPicture = "a.goods-tile__picture";
     public String addToCompare = "button.compare-button";
     public String productCompareCounter = "//span[@class='header-actions__button-counter']";
     public String productTitleInCompare = "a.product__heading";
     public String compareProductsButton = "button.header-actions__button";
     public String compareLink = "a.comparison-modal__link";
-//  String menuCatalog = "//a[contains(text(), 'Ноутбуки и компьютеры')]";
+    //  String menuCatalog = "//a[contains(text(), 'Ноутбуки и компьютеры')]";
+    String secondProductName;
+    int firstPriceIndex;
+    int secondPriceIndex;
+    int firstPrice;
+    int secondPrice;
+    int firstPoductPriceLimit = 3000;
+    String firstProductName;
+
+    By linkText = By.linkText("Ноутбуки и компьютеры");
 
     @BeforeMethod
     public void getUrl() {
@@ -34,34 +40,20 @@ public  String goodPicture = "a.goods-tile__picture";
 
     @Test
     public void comparison() throws InterruptedException {
-        wait.until(presenceOfElementLocated(By.xpath(itemComputersAndLaptops)));
-        action.moveToElement(driver.findElement(By.linkText("Ноутбуки и компьютеры"))).build().perform();
-        wait.until(visibilityOfElementLocated(By.xpath(itemMonitors)));
-        driver.findElement(By.xpath(itemMonitors)).click();
+        RozetkaMainPage rozetkaMainPage = new RozetkaMainPage(driver);
+        wait.until(presenceOfElementLocated(rozetkaMainPage.itemComputersAndLaptops));
+        rozetkaMainPage.cursorMoveToElement(linkText);
+        wait.until(visibilityOfElementLocated(rozetkaMainPage.itemMonitors));
+        rozetkaMainPage.clickOnProductCategory();
         wait.until(visibilityOfElementLocated(By.cssSelector(goodPicture)));
 
 
 //        Search for first price less then 3000 and remember price
-        int firstPrice = 0;
-        int firstPriceIndex = 0;
-        String firstPriceWithoutSpaces;
-        int counter = 0;
-        List<WebElement> priceList = driver.findElements(By.cssSelector(prices));
-        for (WebElement firstItemPrice : priceList) {
-            firstPriceWithoutSpaces = firstItemPrice.getText().replaceAll("\\s+", "");
-            firstPrice = Integer.parseInt(firstPriceWithoutSpaces);
-
-            if (firstPrice < 3000) {
-                firstPriceIndex = priceList.indexOf(firstItemPrice);
-                counter++;
-            }
-            if (counter > 0) {
-                break;
-            }
-        }
+        RozetkaResultPage rozetkaResultPage = new RozetkaResultPage(driver);
+        firstPrice = rozetkaResultPage.getProductPrice(firstPoductPriceLimit);
+        firstPriceIndex = rozetkaResultPage.getProductIndex(firstPoductPriceLimit);
 //        Remember name of product with price less then 3000
-        List<WebElement> productList = driver.findElements(By.cssSelector(products));
-        String firstProductName = productList.get(firstPriceIndex).getText();
+        firstProductName = rozetkaResultPage.getProductName(firstPriceIndex);
 
 
 //        Add to compare first product
@@ -74,30 +66,18 @@ public  String goodPicture = "a.goods-tile__picture";
         driver.navigate().back();
         wait.until(visibilityOfElementLocated(By.cssSelector(goodPicture)));
 
-
 //        Searching for second product which has price less the first one and remember price of product
-        int secondPrice = 0;
-        int secondPriceIndex = 0;
-        String secondPriceWithoutSpaces;
-        int counter1 = 0;
-        List<WebElement> secondPriceList = driver.findElements(By.cssSelector(prices));
-        for (WebElement secondItemPrice : secondPriceList) {
-
-            secondPriceWithoutSpaces = secondItemPrice.getText().replaceAll("\\s+", "");
-            secondPrice = Integer.parseInt(secondPriceWithoutSpaces);
-
-            if (secondPrice < firstPrice) {
-                secondPriceIndex = secondPriceList.indexOf(secondItemPrice);
-                counter1++;
-            }
-            if (counter1 > 0) {
-                break;
-            }
-        }
+        secondPrice = rozetkaResultPage.getProductPrice(firstPrice);
+        secondPriceIndex = rozetkaResultPage.getProductIndex(firstPrice);
 
 //        Remember name of second product
-        List<WebElement> productList2 = driver.findElements(By.cssSelector(products));
-        String secondProductName = productList2.get(secondPriceIndex).getText();
+
+        secondProductName = rozetkaResultPage.getProductName(secondPriceIndex);
+
+//        List<WebElement> productList2 = driver.findElements(rozetkaResultPage.products);
+//        secondProductName = productList2.get(secondPriceIndex).getText();
+
+
 
 //        Add to compare and check if it was added
         driver.findElement(By.xpath("//span[@class='goods-tile__title'] [contains(text(), '" + secondProductName + "')]")).click();

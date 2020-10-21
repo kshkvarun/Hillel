@@ -3,8 +3,7 @@ import org.openqa.selenium.By;
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
+
 
 public class Task3 extends BaseClass {
     String demoUrl = "http://demo.guru99.com/Agile_Project/Agi_V1/index.php";
