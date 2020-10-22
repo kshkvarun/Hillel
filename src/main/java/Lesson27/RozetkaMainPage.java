@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -24,10 +25,13 @@ public class RozetkaMainPage {
 
     public RozetkaMainPage(WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver, this);
+
     }
 
     public By itemMonitors = By.xpath("//fat-menu/div/ul/li[1]/div/div[2]/div[1]/div[2]/ul[2]/li/ul/li[1]");
     public By itemComputersAndLaptops = By.xpath("//sidebar-fat-menu//a[contains(text(), 'Ноутбуки и компьютеры')]");
+    public By goodPicture = By.cssSelector("a.goods-tile__picture");
 
     public void cursorMoveToElement(By linkText) {
         action = new Actions(driver);
